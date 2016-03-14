@@ -29,7 +29,7 @@ class Puppet::Provider::Rest < Puppet::Provider
     # If the above changes, read the below variables from a config file
     
     ip = '127.0.0.1'
-    port = '8080'
+    port = '8151'
            
     { :ip   => ip,
       :port => port }
@@ -57,7 +57,7 @@ class Puppet::Provider::Rest < Puppet::Provider
   
   def self.get_objects(type)    
     rest = get_rest_info
-    url = "http://#{rest[:ip]}:#{rest[:port]}/api/collections/#{type}"
+    url = "https://#{rest[:ip]}:#{rest[:port]}/api/collections/#{type}"
     
     responseJson = get_json_from_url(url)
 
@@ -76,7 +76,7 @@ class Puppet::Provider::Rest < Puppet::Provider
     Puppet.debug("REST API => API: #{command}")    
     
     rest = self.class.get_rest_info
-    url = "http://#{rest[:ip]}:#{rest[:port]}/api/commands/#{command}"
+    url = "https://#{rest[:ip]}:#{rest[:port]}/api/commands/#{command}"
     
     begin
       RestClient.post url, resourceHash.to_json, :content_type => :json
