@@ -122,7 +122,7 @@ Puppet::Type.type(:razor_policy).provide :rest, :parent => Puppet::Provider::Res
       # More magic with - and _
       resourceHash = {                    
         :name       => resource[:name],
-        :max_count  => @property_hash[:max_count],
+        'max-count'  => @property_hash[:max_count],
       }
       post_command('modify-policy-max-count', resourceHash)
       updated = true
