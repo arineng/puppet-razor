@@ -68,7 +68,7 @@ Puppet::Type.type(:razor_policy).provide :rest, :parent => Puppet::Provider::Res
       :broker         => resource[:broker],
       :hostname       => resource[:hostname],
       :root_password  => resource[:root_password],
-#      'max-count'     => resource[:max_count].to_i,
+      :max_count      => resource[:max_count].to_i,
       :node_metadata  => resource[:node_metadata],
       :tags           => resource[:tags],
     }
